@@ -1,0 +1,8 @@
+{
+  "name": "Daniel Gutierrez Portfolio",
+  "description": "Portafolio minimalista optimizado con React y estética premium.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
