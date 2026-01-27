@@ -97,7 +97,7 @@ export const PROJECTS = [
 
 export const PROJECTS_IMPROVED = [
 {
-    id: 1,
+    id: 8,
     title: "GIF STUDIO",
     description:
       "Aplicación web que permite buscar y reproducir GIFs utilizando una API externa. Incluye funcionalidades de búsqueda por palabras clave.",
@@ -107,7 +107,7 @@ export const PROJECTS_IMPROVED = [
     images: ["/assets/gif1.png", "/assets/gif2.png"],
   },
   {
-    id: 2,
+    id: 9,
     title: "PokeDex",
     description:
       "Aplicación interactiva para buscar y visualizar información detallada de diferentes Pokémon, consumiendo datos de una API especializada.",
@@ -117,7 +117,7 @@ export const PROJECTS_IMPROVED = [
     images: ["/assets/dex.png","/assets/dex2.png","/assets/dex1.png", "/assets/dex3.png"],
   },
   {
-    id: 3,
+    id: 10,
     title: "Spotify",
     description:
       "Recreación de una interfaz similar a Spotify, permitiendo la exploración de música y artistas mediante la integración con la API de Spotify.",
