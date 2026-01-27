@@ -1,18 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import { PROJECTS as PROJECTS_IMPORT } from '../constants.js';
+import React, { useEffect, useMemo, useState } from 'react';
+import { PROJECTS as PROJECTS_IMPORT, PROJECTS_IMPROVED } from '../constants.js';
 
 const AUTOPLAY_MS = 10000;
 const FALLBACK_IMG =
   'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800';
 
 const Projects = () => {
-  const projects = Array.isArray(PROJECTS_IMPORT) ? PROJECTS_IMPORT : [];
+  const pages = useMemo(
+    () => [
+      {
+        key: 'base',
+        label: 'Proyectos',
+        title: 'Proyectos',
+        subtitle: 'Full Stack Creations (2023 - 2025)',
+        description:
+          'Cada aplicacion representa un reto tecnico resuelto con Node.js y React.',
+        data: Array.isArray(PROJECTS_IMPORT) ? PROJECTS_IMPORT : [],
+      },
+      {
+        key: 'improved',
+        label: 'Proyectos mejorados',
+        title: 'Proyectos mejorados',
+        subtitle: 'Curated improvements (2023 - 2025)',
+        description:
+          'Version mejorada de proyectos anteriores, enfocada en UI, rendimiento y detalle.',
+        data: Array.isArray(PROJECTS_IMPROVED) ? PROJECTS_IMPROVED : [],
+      },
+    ],
+    []
+  );
+
+  const [activePageKey, setActivePageKey] = useState(pages[0]?.key ?? 'base');
+  const activePage = pages.find((page) => page.key === activePageKey) ?? pages[0];
+  const projects = activePage?.data ?? [];
 
   const [activeByPos, setActiveByPos] = useState(() => projects.map(() => 0));
 
   useEffect(() => {
     setActiveByPos(projects.map(() => 0));
-  }, [projects.length]);
+  }, [projects.length, activePageKey]);
 
   useEffect(() => {
     if (projects.length === 0) return;
@@ -55,20 +81,42 @@ const Projects = () => {
     <div className="max-w-7xl mx-auto px-6">
       <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 reveal">
         <div className="space-y-4">
-          <h2 className="text-6xl font-serif">Proyectos</h2>
+          <h2 className="text-6xl font-serif">{activePage?.title ?? 'Proyectos'}</h2>
           <p className="text-neutral-500 uppercase tracking-widest text-xs">
-            Full Stack Creations (2023 - 2025)
+            {activePage?.subtitle ?? 'Full Stack Creations (2023 - 2025)'}
           </p>
         </div>
         <div className="h-px flex-grow bg-neutral-200 hidden md:block mx-12 mb-4"></div>
-        <p className="text-neutral-400 max-w-xs text-sm leading-relaxed">
-          Cada aplicación representa un reto técnico resuelto con Node.js y React.
-        </p>
+        <div className="flex flex-col items-start md:items-end gap-4">
+          <p className="text-neutral-400 max-w-xs text-sm leading-relaxed text-left md:text-right">
+            {activePage?.description ??
+              'Cada aplicacion representa un reto tecnico resuelto con Node.js y React.'}
+          </p>
+          <div className="flex gap-3">
+            {pages.map((page) => {
+              const isActive = page.key === activePageKey;
+              return (
+                <button
+                  key={page.key}
+                  type="button"
+                  onClick={() => setActivePageKey(page.key)}
+                  className={`text-[10px] font-bold tracking-[0.2em] uppercase border px-4 py-2 rounded-full transition-all ${
+                    isActive
+                      ? 'bg-black text-white border-black'
+                      : 'border-neutral-200 text-neutral-500 hover:border-black hover:text-black'
+                  }`}
+                >
+                  {page.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {projects.length === 0 ? (
         <p className="text-neutral-400 text-sm">
-          No se encontraron PROJECTS. Revisa el export en <code>constants.js</code>.
+          No hay proyectos en esta lista. Revisa el export en <code>constants.js</code>.
         </p>
       ) : (
         <div className="grid md:grid-cols-2 gap-x-16 gap-y-32">
@@ -184,3 +232,5 @@ const Projects = () => {
 };
 
 export default Projects;
+
+

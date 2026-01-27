@@ -3,7 +3,7 @@ export const PROJECTS = [
     id: 1,
     title: "Reproductor de GIFs con API",
     description:
-      "Aplicación web que permite buscar y reproducir GIFs utilizando una API externa. Incluye funcionalidades de búsqueda por palabras clave y carga infinita.",
+      "Aplicación web que permite reproducir GIFs utilizando una API externa.",
     technologies: ["HTML", "CSS", "JavaScript", "API REST"],
     githubUrl: "https://github.com/KevinDGutierrez/gif-app-kgutierrez.git",
     liveUrl: "https://gif-app-kgutierrez.vercel.app/",
@@ -11,16 +11,6 @@ export const PROJECTS = [
   },
   {
     id: 2,
-    title: "Marvel App con Buscador y Paginado",
-    description:
-      "Explora personajes y cómics del universo Marvel con esta aplicación. Incorpora un buscador eficiente y paginación para una navegación fluida.",
-    technologies: ["HTML", "CSS", "JavaScript", "API Marvel", "Paginación"],
-    githubUrl: "https://github.com/KevinDGutierrez/MarvelApp-kgutierrez.git",
-    liveUrl: "https://marvel-app-kgutierrez.vercel.app/",
-    images: ["/assets/m1.png", "/assets/m2.png", "/assets/m3.png"],
-  },
-  {
-    id: 3,
     title: "Laboratorio 1 - Estilo Propio",
     description:
       "Reinterpretación y rediseño de un proyecto base, aplicando estilos y creatividad propios para demostrar habilidades de diseño UI/UX y CSS.",
@@ -30,7 +20,7 @@ export const PROJECTS = [
     images: ["/assets/l1.png", "/assets/l2.png", "/assets/l3.png", "/assets/l4.png"],
   },
   {
-    id: 4,
+    id: 3,
     title: "Buscador de Pokémon con API",
     description:
       "Aplicación interactiva para buscar y visualizar información detallada de diferentes Pokémon, consumiendo datos de una API especializada.",
@@ -40,7 +30,7 @@ export const PROJECTS = [
     images: ["/assets/poke2.png", "/assets/poke3.png"],
   },
   {
-    id: 5,
+    id: 4,
     title: "Spotify App con API",
     description:
       "Recreación de una interfaz similar a Spotify, permitiendo la exploración de música y artistas mediante la integración con la API de Spotify.",
@@ -50,7 +40,7 @@ export const PROJECTS = [
     images: ["/assets/s1.png", "/assets/s2.png", "/assets/s3.png", "/assets/s4.png"],
   },
   {
-    id: 6,
+    id: 5,
     title: "Gestor de Tareas Frontend",
     description:
       "Una aplicación frontend para organizar y gestionar tareas diarias. Permite añadir, editar y eliminar tareas de forma intuitiva.",
@@ -60,7 +50,7 @@ export const PROJECTS = [
     images: ["/assets/g1.png", "/assets/g2.png", "/assets/g3.png", "/assets/g4.png", "/assets/g5.png", "/assets/g6.png", "/assets/g7.png"],
   },
   {
-    id: 7,
+    id: 6,
     title: "Banking System - Banca Virtual (Full Stack)",
     description:
       "Proyecto grupal Full Stack que simula una banca virtual. Incluye funcionalidades para transferencias y gestión de cuentas, demostrando integración frontend-backend.",
@@ -75,7 +65,7 @@ export const PROJECTS = [
     ],
   },
   {
-  id: 8,
+  id: 7,
   title: " Sen-IA ChatBOT Inteligente con IA Conectado a tu CRM",
   description:
     "Asistente virtual inteligente potenciado con Inteligencia Artificial en tiempo real, desarrollado y desplegado completamente sobre la infraestructura de Google Cloud. La solución se integra de forma nativa con el CRM Dolibarr y permite a los clientes interactuar directamente desde WhatsApp y una versión web, sin necesidad de pasos adicionales ni intervención manual. El asistente gestiona conversaciones inteligentes capaces de crear tickets de soporte directamente en el CRM, tanto para clientes sin sesión iniciada como para usuarios previamente registrados en la base de datos. Al generarse un ticket, el sistema notifica automáticamente por correo electrónico al responsable del área correspondiente. Además, el asistente identifica intereses comerciales durante la conversación, notifica a asesores o vendedores, crea registros de terceros dentro del CRM y envía catálogos, información de productos o soluciones del portafolio según lo solicitado por el cliente. Todo el flujo de atención, automatización, notificaciones y gestión de datos se ejecuta directamente desde la conversación, convirtiendo al sistema en un asistente verdaderamente inteligente orientado a optimizar la comunicación, la automatización de procesos empresariales y la experiencia del cliente.",
@@ -103,6 +93,40 @@ export const PROJECTS = [
     "/assets/crm8.png",
   ],
 }
+];
+
+export const PROJECTS_IMPROVED = [
+{
+    id: 1,
+    title: "GIF STUDIO",
+    description:
+      "Aplicación web que permite buscar y reproducir GIFs utilizando una API externa. Incluye funcionalidades de búsqueda por palabras clave.",
+    technologies: ["HTML", "CSS", "JavaScript", "API REST"],
+    githubUrl: "https://github.com/KevinDGutierrez/New-Giff-App",
+    liveUrl: "https://new-giff-app.vercel.app/",
+    images: ["/assets/gif1.png", "/assets/gif2.png"],
+  },
+  {
+    id: 2,
+    title: "PokeDex",
+    description:
+      "Aplicación interactiva para buscar y visualizar información detallada de diferentes Pokémon, consumiendo datos de una API especializada.",
+    technologies: ["HTML", "CSS", "JavaScript", "PokeAPI"],
+    githubUrl: "https://github.com/KevinDGutierrez/New_Pokedex",
+    liveUrl: "https://pokedex-zeta-taupe.vercel.app/",
+    images: ["/assets/dex.png","/assets/dex2.png","/assets/dex1.png", "/assets/dex3.png"],
+  },
+  {
+    id: 3,
+    title: "Spotify",
+    description:
+      "Recreación de una interfaz similar a Spotify, permitiendo la exploración de música y artistas mediante la integración con la API de Spotify.",
+    technologies: ["HTML", "CSS", "JavaScript", "Spotify API"],
+    githubUrl: "https://github.com/KevinDGutierrez/New_Spotify",
+    liveUrl: "https://new-spotify-zeta.vercel.app/",
+    images: ["/assets/nsp1.png", "/assets/nsp2.png", "/assets/nsp3.png", "/assets/nsp4.png"],
+  }
+
 ];
 
 export const SKILLS = [
