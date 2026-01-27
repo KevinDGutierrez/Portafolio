@@ -23,10 +23,39 @@ const App = () => {
       });
     }, { threshold: 0.1 });
 
-    const sections = document.querySelectorAll('section, .reveal');
-    sections.forEach((section) => observer.observe(section));
+    const observeTargets = (root = document) => {
+      if (root instanceof Element) {
+        if (root.matches('section, .reveal')) {
+          observer.observe(root);
+        }
+      }
 
-    return () => observer.disconnect();
+      if (root.querySelectorAll) {
+        const sections = root.querySelectorAll('section, .reveal');
+        sections.forEach((section) => observer.observe(section));
+      }
+    };
+
+    observeTargets();
+
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (!(node instanceof Element)) return;
+          observeTargets(node);
+        });
+      });
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 
   return (
