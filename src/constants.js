@@ -17,7 +17,7 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "Diseño UI/UX"],
     githubUrl: "https://github.com/KevinDGutierrez/PaginaLab1.git",
     liveUrl: "https://pagina-lab1.vercel.app/",
-    images: ["/assets/l1.png", "/assets/l2.png", "/assets/l3.png", "/assets/l4.png"],
+    images: ["/assets/l1.png", "/assets/l2.png", "/assets/l3.png", "/assets/l4.png", "/assets/l5.png"],
   },
   {
     id: 3,
