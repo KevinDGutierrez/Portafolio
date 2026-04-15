@@ -92,6 +92,35 @@ export const PROJECTS = [
     "/assets/crm7.png",
     "/assets/crm8.png",
   ],
+},
+{
+  id: 8,
+  title: "Sistema de Reporte de Ventas en Campo",
+  description:
+    "Solución desarrollada para digitalizar y automatizar la gestión comercial y de atención al cliente mediante integración entre formularios web, asistentes inteligentes, correo y CRM. El sistema permite registrar visitas de ventas, identificar clientes existentes o crear nuevos, almacenar contactos, capturar ubicación GPS, generar oportunidades comerciales y registrar eventos de agenda directamente en el CRM. Además, incorpora validaciones para prevenir errores de captura y notificaciones automáticas por correo cuando se detectan inconsistencias. El proyecto fue diseñado para reducir procesos manuales, mejorar la trazabilidad de la operación comercial y centralizar la información en tiempo real dentro del ecosistema empresarial.",
+  technologies: [
+    "Node.js",
+    "Dolibarr CRM",
+    "Google Cloud",
+    "KoboToolbox",
+    "Web Forms",
+    "APIs REST",
+    "Automatización",
+    "Correo automático",
+    "GPS"
+  ],
+  githubUrl: null,
+  liveUrl: null,
+  demoUrl: null,
+  images: [
+    "/assets/kobo1.png",
+    "/assets/kobo2.png",
+    "/assets/kobo3.png",
+    "/assets/kobo4.png",
+    "/assets/kobo5.png",
+    "/assets/kobo6.png",
+    "/assets/kobo7.png"
+  ]
 }
 ];
 

@@ -19,7 +19,7 @@ const Curriculum = () => {
             Descargar CV (PDF)
           </a>
         </div>
-        <p className="text-xs text-neutral-400 pt-4">Versión actualizada Enero 2026</p>
+        <p className="text-xs text-neutral-400 pt-4">Versión actualizada Abril 2026</p>
       </div>
     </div>
   );
