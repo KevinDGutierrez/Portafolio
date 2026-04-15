@@ -81,7 +81,7 @@ export const PROJECTS = [
     "Gemini 1.5",
   ],
   githubUrl: null,
-  liveUrl: "https://sencom-chatbot.vercel.app/",
+  liveUrl: "https://api.whatsapp.com/send/?phone=50223792400&text&type=phone_number&app_absent=0",
   images: [
     "/assets/crm1.png",
     "/assets/crm2.png",
