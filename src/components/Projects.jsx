@@ -1,236 +1,143 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PROJECTS as PROJECTS_IMPORT, PROJECTS_IMPROVED } from '../constants.js';
 
-const AUTOPLAY_MS = 10000;
 const FALLBACK_IMG =
   'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800';
 
-const Projects = () => {
-  const pages = useMemo(
-    () => [
-      {
-        key: 'base',
-        label: 'Proyectos',
-        title: 'Proyectos',
-        subtitle: 'Full Stack Creations (2023 - 2025)',
-        description:
-          'Cada aplicacion representa un reto tecnico resuelto con Node.js y React.',
-        data: Array.isArray(PROJECTS_IMPORT) ? PROJECTS_IMPORT : [],
-      },
-      {
-        key: 'improved',
-        label: 'Proyectos mejorados',
-        title: 'Proyectos mejorados',
-        subtitle: 'Curated improvements (2023 - 2025)',
-        description:
-          'Version mejorada de proyectos anteriores, enfocada en UI, rendimiento y detalle.',
-        data: Array.isArray(PROJECTS_IMPROVED) ? PROJECTS_IMPROVED : [],
-      },
-    ],
-    []
-  );
+const CATEGORY_LABELS = {
+  featured: 'Destacados',
+  commercial: 'Comerciales',
+  improved: 'Rediseñados',
+  school: 'Académicos',
+};
 
-  const [activePageKey, setActivePageKey] = useState(pages[0]?.key ?? 'base');
+const Projects = () => {
+  const navigate = useNavigate();
+
+  const pages = useMemo(() => {
+    const allProjects = Array.isArray(PROJECTS_IMPORT) ? PROJECTS_IMPORT : [];
+    const improvedProjects = Array.isArray(PROJECTS_IMPROVED) ? PROJECTS_IMPROVED : [];
+
+    const escolares = allProjects.filter(p => p.id <= 6);
+    const comerciales = allProjects.filter(p => p.id >= 7);
+    const rediseñados = improvedProjects;
+
+    const destacadosIds = [6, 7, 9, 10];
+    const destacados = allProjects.filter(p => destacadosIds.includes(p.id));
+
+    return [
+      { key: 'featured', data: destacados, count: destacados.length },
+      { key: 'commercial', data: comerciales, count: comerciales.length },
+      { key: 'improved', data: rediseñados, count: rediseñados.length },
+      { key: 'school', data: escolares, count: escolares.length },
+    ];
+  }, []);
+
+  const [activePageKey, setActivePageKey] = useState(pages[0]?.key ?? 'featured');
   const activePage = pages.find((page) => page.key === activePageKey) ?? pages[0];
   const projects = activePage?.data ?? [];
 
-  const [activeByPos, setActiveByPos] = useState(() => projects.map(() => 0));
-
-  useEffect(() => {
-    setActiveByPos(projects.map(() => 0));
-  }, [projects.length, activePageKey]);
-
-  useEffect(() => {
-    if (projects.length === 0) return;
-
-    const interval = setInterval(() => {
-      setActiveByPos((prev) =>
-        prev.map((curr, i) => {
-          const images = Array.isArray(projects[i]?.images) ? projects[i].images : [];
-          const total = images.length;
-          if (total > 1) return (curr + 1) % total;
-          return 0;
-        })
-      );
-    }, AUTOPLAY_MS);
-
-    return () => clearInterval(interval);
-  }, [projects]);
-
-  const prevImg = (pos) => {
-    const images = Array.isArray(projects[pos]?.images) ? projects[pos].images : [];
-    const total = images.length;
-    if (total <= 1) return;
-
-    setActiveByPos((prev) =>
-      prev.map((curr, i) => (i === pos ? (curr - 1 + total) % total : curr))
-    );
-  };
-
-  const nextImg = (pos) => {
-    const images = Array.isArray(projects[pos]?.images) ? projects[pos].images : [];
-    const total = images.length;
-    if (total <= 1) return;
-
-    setActiveByPos((prev) =>
-      prev.map((curr, i) => (i === pos ? (curr + 1) % total : curr))
-    );
+  const handleProjectClick = (project) => {
+    const source = activePageKey === 'improved' ? 'improved' : 'main';
+    navigate(`/project/${source}/${project.id}`);
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 reveal">
-        <div className="space-y-4">
-          <h2 className="text-6xl font-serif">{activePage?.title ?? 'Proyectos'}</h2>
-          <p className="text-neutral-500 uppercase tracking-widest text-xs">
-            {activePage?.subtitle ?? 'Full Stack Creations (2023 - 2025)'}
-          </p>
-        </div>
-        <div className="h-px flex-grow bg-neutral-200 hidden md:block mx-12 mb-4"></div>
-        <div className="flex flex-col items-start md:items-end gap-4">
-          <p className="text-neutral-400 max-w-xs text-sm leading-relaxed text-left md:text-right">
-            {activePage?.description ??
-              'Cada aplicacion representa un reto tecnico resuelto con Node.js y React.'}
-          </p>
-          <div className="flex gap-3">
-            {pages.map((page) => {
-              const isActive = page.key === activePageKey;
-              return (
-                <button
-                  key={page.key}
-                  type="button"
-                  onClick={() => setActivePageKey(page.key)}
-                  className={`text-[10px] font-bold tracking-[0.2em] uppercase border px-4 py-2 rounded-full transition-all ${
-                    isActive
-                      ? 'bg-black text-white border-black'
-                      : 'border-neutral-200 text-neutral-500 hover:border-black hover:text-black'
-                  }`}
-                >
-                  {page.label}
-                </button>
-              );
-            })}
+    <div className="max-w-7xl mx-auto px-6 relative">
+      {/* Header */}
+      <div className="mb-16 reveal">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+          <div className="space-y-3">
+            <h2 className="text-5xl md:text-6xl font-serif text-neutral-900 dark:text-white transition-colors leading-none">
+              Proyectos
+            </h2>
+            <p className="text-neutral-400 dark:text-neutral-500 text-sm font-light max-w-md">
+              Una selección de proyectos que reflejan mi experiencia en desarrollo web, IA y automatización.
+            </p>
           </div>
+        </div>
+
+        {/* Filter Tabs */}
+        <div className="flex items-center gap-2 text-sm flex-wrap">
+          <span className="text-neutral-400 dark:text-neutral-500 text-[11px] uppercase tracking-widest font-bold mr-4 hidden md:block">
+            Filtrar
+          </span>
+          {pages.map((page, i) => (
+            <React.Fragment key={page.key}>
+              {i > 0 && <span className="text-neutral-300 dark:text-neutral-700 hidden md:inline">/</span>}
+              <button
+                type="button"
+                onClick={() => setActivePageKey(page.key)}
+                className={`relative text-[11px] md:text-[12px] font-bold tracking-wider transition-all px-1 py-1 ${
+                  page.key === activePageKey
+                    ? 'text-neutral-900 dark:text-white'
+                    : 'text-neutral-400 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300'
+                }`}
+              >
+                {CATEGORY_LABELS[page.key]}
+                <sup className="text-[9px] ml-1 opacity-50">{String(page.count).padStart(2, '0')}</sup>
+                {page.key === activePageKey && (
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-neutral-900 dark:bg-white rounded-full"></span>
+                )}
+              </button>
+            </React.Fragment>
+          ))}
         </div>
       </div>
 
-      {projects.length === 0 ? (
-        <p className="text-neutral-400 text-sm">
-          No hay proyectos en esta lista. Revisa el export en <code>constants.js</code>.
-        </p>
-      ) : (
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-32">
-          {projects.map((project, index) => {
-            const images = Array.isArray(project.images) ? project.images : [];
-            const total = images.length;
-            const active = typeof activeByPos[index] === 'number' ? activeByPos[index] : 0;
-
-            const src = total > 0 ? images[Math.min(active, total - 1)] : FALLBACK_IMG;
-
-            return (
-              <div
-                key={project.id ?? index}
-                className={`group reveal project-card-zoom ${index % 2 !== 0 ? 'md:mt-32' : ''}`}
-              >
-                <div className="aspect-[16/10] overflow-hidden bg-white relative shadow-sm border border-neutral-100">
-                  <img
-                    src={src}
-                    alt={project.title}
-                    className="project-image"
-                    onError={(e) => {
-                      e.currentTarget.src = FALLBACK_IMG;
-                    }}
-                  />
-
-                  {/* BOTONES CARRUSEL ARRIBA-DERECHA (no bloquean overlay) */}
-                  {total > 1 && (
-                    <div className="absolute top-3 right-3 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-all">
-                      <button
-                        type="button"
-                        aria-label="Imagen anterior"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          prevImg(index);
-                        }}
-                        className="w-9 h-9 bg-white/90 text-black flex items-center justify-center rounded-full shadow-md hover:bg-black hover:text-white transition-all"
-                      >
-                        {'<'}
-                      </button>
-
-                      <button
-                        type="button"
-                        aria-label="Imagen siguiente"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          nextImg(index);
-                        }}
-                        className="w-9 h-9 bg-white/90 text-black flex items-center justify-center rounded-full shadow-md hover:bg-black hover:text-white transition-all"
-                      >
-                        {'>'}
-                      </button>
-                    </div>
-                  )}
-
-                  {/* OVERLAY (GitHub / Live) */}
-                  <div className="absolute inset-0 z-10 bg-neutral-900/0 group-hover:bg-neutral-900/40 transition-all duration-700 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <div className="flex gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                      {project.githubUrl && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="w-12 h-12 bg-white text-black flex items-center justify-center rounded-full hover:bg-black hover:text-white transition-all shadow-xl"
-                        >
-                          <i className="fab fa-github text-lg"></i>
-                        </a>
-                      )}
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="w-12 h-12 bg-white text-black flex items-center justify-center rounded-full hover:bg-black hover:text-white transition-all shadow-xl"
-                        >
-                          <i className="fas fa-external-link-alt text-sm"></i>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-10 space-y-6">
-                  <div className="flex flex-wrap gap-3">
-                    {(project.technologies || []).map((t) => (
-                      <span
-                        key={t}
-                        className="text-[9px] font-bold tracking-[0.2em] uppercase text-neutral-400 border border-neutral-200 px-3 py-1 rounded-full"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  <h3 className="text-3xl font-serif group-hover:text-neutral-500 transition-colors duration-500">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-neutral-500 text-base leading-relaxed max-w-md font-light">
-                    {project.description}
-                  </p>
-
-                  <div className="h-[1px] w-0 group-hover:w-full bg-neutral-900 transition-all duration-700"></div>
-                </div>
+      {/* Project Grid — uniform cards with object-cover */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6">
+        {projects.map((project, index) => (
+          <div
+            key={`${project.id}-${activePageKey}-${index}`}
+            onClick={() => handleProjectClick(project)}
+            className="group cursor-pointer reveal"
+            style={{ transitionDelay: `${index * 80}ms` }}
+          >
+            {/* Card — image shows complete, no cropping, no borders */}
+            <div className="relative rounded-xl overflow-hidden mb-5 shadow-lg hover:shadow-2xl transition-all duration-500">
+              <img
+                src={project.cover || project.images?.[0] || FALLBACK_IMG}
+                alt={project.title}
+                className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                onError={(e) => { e.currentTarget.src = FALLBACK_IMG; }}
+              />
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              
+              {/* Tech badges floating on hover */}
+              <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-500">
+                {project.technologies?.slice(0, 3).map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-[8px] font-bold uppercase tracking-widest text-white/90 bg-white/15 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-            );
-          })}
-        </div>
-      )}
+            </div>
+
+            {/* Card Info */}
+            <div className="space-y-2 px-1">
+              <h3 className="text-lg font-semibold text-neutral-900 dark:text-white leading-tight line-clamp-1 group-hover:text-neutral-500 dark:group-hover:text-neutral-400 transition-colors duration-300">
+                {project.title}
+              </h3>
+              <div className="flex items-center gap-3">
+                <span className="text-[11px] text-neutral-500 dark:text-neutral-400 font-medium">
+                  Ver proyecto
+                </span>
+                <span className="w-6 h-[1px] bg-neutral-300 dark:bg-neutral-600 group-hover:w-10 transition-all duration-300"></span>
+                <i className="fas fa-arrow-right text-[9px] text-neutral-400 dark:text-neutral-500 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0"></i>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default Projects;
-
-

@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
@@ -9,8 +10,9 @@ import Experience from './components/Experience.jsx';
 import Projects from './components/Projects.jsx';
 import Curriculum from './components/Curriculum.jsx';
 import Footer from './components/Footer.jsx';
+import ProjectDetail from './components/ProjectDetail.jsx';
 
-const App = () => {
+const HomePage = () => {
   const [activeSection, setActiveSection] = useState('welcome-section');
 
   useEffect(() => {
@@ -59,40 +61,63 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <>
       <Navbar activeSection={activeSection} />
-      
+
       <main>
         <section id="welcome-section" className="min-h-screen pt-20">
           <Hero />
         </section>
 
-        <section id="about-you-section" className="py-24 bg-white reveal">
+        <section id="about-you-section" className="py-24 bg-white dark:bg-neutral-900 reveal transition-colors">
           <About />
         </section>
 
-        <section id="values-section" className="py-24 bg-neutral-50 reveal">
+        <section id="values-section" className="py-24 bg-neutral-50 dark:bg-neutral-950 reveal transition-colors">
           <Values />
         </section>
 
-        <section id="skills-section" className="py-24 bg-white reveal">
+        <section id="skills-section" className="py-24 bg-white dark:bg-neutral-900 reveal transition-colors">
           <Skills />
         </section>
 
-        <section id="education-experience-section" className="py-24 bg-neutral-900 text-white reveal">
+        <section id="education-experience-section" className="py-24 bg-neutral-900 dark:bg-black text-white reveal transition-colors">
           <Experience />
         </section>
 
-        <section id="projects-section" className="py-24 bg-white reveal">
+        <section id="projects-section" className="py-24 bg-white dark:bg-neutral-900 reveal transition-colors">
           <Projects />
         </section>
 
-        <section id="curriculum-section" className="py-24 bg-neutral-50 reveal">
+        <section id="curriculum-section" className="py-24 bg-neutral-50 dark:bg-neutral-950 reveal transition-colors">
           <Curriculum />
         </section>
       </main>
 
       <Footer />
+    </>
+  );
+};
+
+const App = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle hash navigation when returning from project detail
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(location.hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [location]);
+
+  return (
+    <div className="min-h-screen bg-[#F9F8F6] dark:bg-neutral-950 transition-colors duration-500">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/project/:source/:projectId" element={<ProjectDetail />} />
+      </Routes>
     </div>
   );
 };

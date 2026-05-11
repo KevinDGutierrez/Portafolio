@@ -7,6 +7,7 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "JavaScript", "API REST"],
     githubUrl: "https://github.com/KevinDGutierrez/gif-app-kgutierrez.git",
     liveUrl: "https://gif-app-kgutierrez.vercel.app/",
+    cover: "/assets/cover_gifplayer.png",
     images: ["/assets/giff1.png", "/assets/giff3.png"],
   },
   {
@@ -17,6 +18,7 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "Diseño UI/UX"],
     githubUrl: "https://github.com/KevinDGutierrez/PaginaLab1.git",
     liveUrl: "https://pagina-lab1.vercel.app/",
+    cover: "/assets/cover_lab1.png",
     images: ["/assets/l1.png", "/assets/l2.png", "/assets/l3.png", "/assets/l4.png", "/assets/l5.png"],
   },
   {
@@ -27,6 +29,7 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "JavaScript", "PokeAPI"],
     githubUrl: "https://github.com/KevinDGutierrez/PokemonApp-kgutierrez.git",
     liveUrl: "https://pokemon-app-kgutierrez.vercel.app/",
+    cover: "/assets/cover_pokemon.png",
     images: ["/assets/poke2.png", "/assets/poke3.png"],
   },
   {
@@ -37,6 +40,7 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "JavaScript", "Spotify API"],
     githubUrl: "https://github.com/KevinDGutierrez/Spotify_kgutierrez-2023455.git",
     liveUrl: "https://spotify-kgutierrez-2023455.vercel.app/",
+    cover: "/assets/cover_spotifyapp.png",
     images: ["/assets/s1.png", "/assets/s2.png", "/assets/s3.png", "/assets/s4.png"],
   },
   {
@@ -47,6 +51,7 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "JavaScript", "(LocalStorage)"],
     githubUrl: "https://github.com/KevinDGutierrez/Gestor-de-Tareas-ADASCHOOL.git",
     liveUrl: "https://gestor-de-tareas-adaschool.vercel.app/",
+    cover: "/assets/cover_taskmanager.png",
     images: ["/assets/g1.png", "/assets/g2.png", "/assets/g3.png", "/assets/g4.png", "/assets/g5.png", "/assets/g6.png", "/assets/g7.png"],
   },
   {
@@ -57,6 +62,7 @@ export const PROJECTS = [
     technologies: ["React", "Node.js", "Express.js", "MongoDB", "JWT", "APIs REST"],
     githubUrl: "https://github.com/KevinDGutierrez/Banking-System-Frontend.git",
     liveUrl: "https://banking-system-frontend-beige.vercel.app/",
+    cover: "/assets/cover_banking.png",
     images: [
       "/assets/b1.png", "/assets/b2.png", "/assets/b3.png", "/assets/b4.png", "/assets/b5.png",
       "/assets/b6.png", "/assets/b7.png", "/assets/b8.png", "/assets/b9.png", "/assets/b10.png",
@@ -78,10 +84,11 @@ export const PROJECTS = [
     "Web Chat",
     "Chatbots",
     "APIs REST",
-    "Gemini 1.5",
+    "Gemini 2.5 flash",
   ],
   githubUrl: null,
   liveUrl: "https://api.whatsapp.com/send/?phone=50223792400&text&type=phone_number&app_absent=0",
+  cover: "/assets/cover_senia.png",
   images: [
     "/assets/crm1.png",
     "/assets/crm2.png",
@@ -112,6 +119,7 @@ export const PROJECTS = [
   githubUrl: null,
   liveUrl: null,
   demoUrl: null,
+  cover: "/assets/cover_kobo.png",
   images: [
     "/assets/kobo1.png",
     "/assets/kobo2.png",
@@ -133,7 +141,7 @@ export const PROJECTS = [
     "Firebase",
     "Google Cloud",
     "Firebase Hosting",
-    "Gemini 2.5",
+    "Gemini 2.5 flash",
     "Gemini 3 Pro Image Preview",
     "Google News",
     "Google Scheduler",
@@ -145,7 +153,8 @@ export const PROJECTS = [
     "Email Reports"
   ],
   githubUrl: null,
-  liveUrl: null,
+  liveUrl: "https://sencom-security-news.web.app",
+  cover: "/assets/cover_securitynews.png",
   images: [
     "/assets/Sencom_News (1).png",
     "/assets/Sencom_News (2).png",
@@ -192,7 +201,8 @@ export const PROJECTS = [
     "Marca Blanca"
   ],
   githubUrl: null,
-  liveUrl: null,
+  liveUrl: "https://prospeccion-12ca0.web.app",
+  cover: "/assets/cover_zenith.png",
   images: [
     "/assets/Zenith (1).png",
     "/assets/Zenith (2).png",
@@ -213,7 +223,7 @@ export const PROJECTS = [
 ];
 
 export const PROJECTS_IMPROVED = [
-{
+  {
     id: 1,
     title: "GIF STUDIO",
     description:
@@ -221,6 +231,7 @@ export const PROJECTS_IMPROVED = [
     technologies: ["HTML", "CSS", "JavaScript", "API REST"],
     githubUrl: "https://github.com/KevinDGutierrez/New-Giff-App",
     liveUrl: "https://new-giff-app.vercel.app/",
+    cover: "/assets/cover_gifstudio.png",
     images: ["/assets/gif1.png", "/assets/gif2.png"],
   },
   {
@@ -231,6 +242,7 @@ export const PROJECTS_IMPROVED = [
     technologies: ["HTML", "CSS", "JavaScript", "PokeAPI"],
     githubUrl: "https://github.com/KevinDGutierrez/New_Pokedex",
     liveUrl: "https://pokedex-zeta-taupe.vercel.app/",
+    cover: "/assets/cover_pokedex.png",
     images: ["/assets/dex.png","/assets/dex2.png","/assets/dex1.png", "/assets/dex3.png"],
   },
   {
@@ -241,9 +253,9 @@ export const PROJECTS_IMPROVED = [
     technologies: ["HTML", "CSS", "JavaScript", "Spotify API"],
     githubUrl: "https://github.com/KevinDGutierrez/New_Spotify",
     liveUrl: "https://new-spotify-zeta.vercel.app/",
+    cover: "/assets/cover_newspotify.png",
     images: ["/assets/nsp1.png", "/assets/nsp2.png", "/assets/nsp3.png", "/assets/nsp4.png"],
   }
-
 ];
 
 export const SKILLS = [
