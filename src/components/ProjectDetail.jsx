@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { PROJECTS, PROJECTS_IMPROVED } from '../constants.js';
 
 const TECH_ICONS = {
@@ -243,6 +243,8 @@ const ContactModal = ({ isOpen, onClose, projectTitle }) => {
 const ProjectDetail = () => {
   const { source, projectId } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const fromTab = searchParams.get('tab') || 'featured';
   const [showContactForm, setShowContactForm] = useState(false);
 
   const project = useMemo(() => {
@@ -279,7 +281,7 @@ const ProjectDetail = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <button
-            onClick={() => navigate('/#projects-section')}
+            onClick={() => navigate(`/#projects-section?tab=${fromTab}`)}
             className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group"
           >
             <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -438,7 +440,7 @@ const ProjectDetail = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button
-              onClick={() => navigate('/#projects-section')}
+              onClick={() => navigate(`/#projects-section?tab=${fromTab}`)}
               className="px-8 py-4 bg-neutral-900 dark:bg-white text-white dark:text-black rounded-full text-[11px] uppercase tracking-[0.2em] font-bold hover:opacity-80 transition-all"
             >
               Ver más proyectos

@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { PROJECTS as PROJECTS_IMPORT, PROJECTS_IMPROVED } from '../constants.js';
 
 const FALLBACK_IMG =
@@ -23,7 +23,7 @@ const Projects = () => {
     const comerciales = allProjects.filter(p => p.id >= 7);
     const rediseñados = improvedProjects;
 
-    const destacadosIds = [6, 7, 9, 10];
+    const destacadosIds = [6, 7, 9, 10, 11, 13];
     const destacados = allProjects.filter(p => destacadosIds.includes(p.id));
 
     return [
@@ -34,13 +34,42 @@ const Projects = () => {
     ];
   }, []);
 
-  const [activePageKey, setActivePageKey] = useState(pages[0]?.key ?? 'featured');
+  const [activePageKey, setActivePageKey] = useState(() => {
+    // Read initial tab from hash query string (e.g. #projects-section?tab=commercial)
+    const hash = window.location.hash;
+    if (hash) {
+      const qIndex = hash.indexOf('?');
+      if (qIndex !== -1) {
+        const params = new URLSearchParams(hash.substring(qIndex));
+        const tab = params.get('tab');
+        if (tab && CATEGORY_LABELS[tab]) return tab;
+      }
+    }
+    return pages[0]?.key ?? 'featured';
+  });
+
+  const location = useLocation();
+
+  // Restore tab when navigating back from project detail
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const qIndex = hash.indexOf('?');
+      if (qIndex !== -1) {
+        const params = new URLSearchParams(hash.substring(qIndex));
+        const tab = params.get('tab');
+        if (tab && CATEGORY_LABELS[tab]) {
+          setActivePageKey(tab);
+        }
+      }
+    }
+  }, [location]);
   const activePage = pages.find((page) => page.key === activePageKey) ?? pages[0];
   const projects = activePage?.data ?? [];
 
   const handleProjectClick = (project) => {
     const source = activePageKey === 'improved' ? 'improved' : 'main';
-    navigate(`/project/${source}/${project.id}`);
+    navigate(`/project/${source}/${project.id}?tab=${activePageKey}`);
   };
 
   return (

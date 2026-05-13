@@ -106,7 +106,9 @@ const App = () => {
     // Handle hash navigation when returning from project detail
     if (location.hash) {
       setTimeout(() => {
-        const el = document.querySelector(location.hash);
+        // Extract just the element ID from hash (strip ?tab=... query params)
+        const hashPart = location.hash.split('?')[0];
+        const el = document.querySelector(hashPart);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
