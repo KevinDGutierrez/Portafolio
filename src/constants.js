@@ -39,7 +39,7 @@ export const PROJECTS = [
       "Recreación de una interfaz similar a Spotify, permitiendo la exploración de música y artistas mediante la integración con la API de Spotify.",
     technologies: ["HTML", "CSS", "JavaScript", "Spotify API"],
     githubUrl: "https://github.com/KevinDGutierrez/Spotify_kgutierrez-2023455.git",
-    liveUrl: "https://spotify-kgutierrez-2023455.vercel.app/",
+    liveUrl: "https://kgutierrez-spotify.vercel.app/",
     cover: "/assets/cover_spotifyapp.png",
     images: ["/assets/s1.png", "/assets/s2.png", "/assets/s3.png", "/assets/s4.png"],
   },
