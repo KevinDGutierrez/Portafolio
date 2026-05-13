@@ -266,7 +266,7 @@ export const PROJECTS = [
       "Hostinger"
     ],
     githubUrl: null,
-    liveUrl: null,
+    liveUrl: "https://chilaquilestop.com",
     cover: "/assets/cover_chilaquiles_landing.png",
     images: [
       "/assets/ChilaquilesTOP_LA (1).png",
@@ -290,7 +290,7 @@ export const PROJECTS = [
       "Atención al Cliente"
     ],
     githubUrl: null,
-    liveUrl: null,
+    liveUrl: "https://api.whatsapp.com/send/?phone=50233019938&text&type=phone_number&app_absent=0",
     cover: "/assets/cover_chilaquiles_bot.png",
     images: [
       "/assets/Chilaquile_BOT (1).png",
