@@ -247,7 +247,8 @@ export const PROJECTS = [
       "/assets/Brochure_Generator (3).png",
       "/assets/Brochure_Generator (4).png",
       "/assets/Brochure_Generator (5).png",
-      "/assets/Brochure_Generator (6).png"
+      "/assets/Brochure_Generator (6).png",
+      "/assets/Flyer 3.png"
     ],
   },
   {
