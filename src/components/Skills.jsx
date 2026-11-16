@@ -32,14 +32,14 @@ const Skills = () => {
                    }}
                  />
               </div>
-              <h4 className="font-bold text-[11px] uppercase tracking-widest mb-4 group-hover:text-white dark:group-hover:text-black transition-colors dark:text-white">{skill.name}</h4>
+              <h4 className="font-bold text-[11px] uppercase tracking-widest mb-4 text-neutral-900 dark:text-white group-hover:text-white dark:group-hover:text-black transition-colors">{skill.name}</h4>
               <div className="w-full h-[2px] bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden mt-auto">
                   <div 
                       className="h-full bg-neutral-900 dark:bg-white group-hover:bg-white dark:group-hover:bg-black transition-all duration-1000 ease-in-out" 
                       style={{ width: `${skill.level}%` }}
                   ></div>
               </div>
-              <span className="text-[9px] uppercase tracking-widest mt-4 font-bold opacity-30 group-hover:opacity-60 group-hover:text-white dark:group-hover:text-black transition-all dark:text-neutral-500">{skill.level}% Dominio</span>
+              <span className="text-[9px] uppercase tracking-widest mt-4 font-bold text-neutral-400 dark:text-neutral-500 group-hover:text-white/80 dark:group-hover:text-black/80 transition-all">{skill.level}% Dominio</span>
             </div>
           );
         })}

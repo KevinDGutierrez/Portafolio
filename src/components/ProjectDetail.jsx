@@ -278,11 +278,11 @@ const ProjectDetail = () => {
   return (
     <div className="min-h-screen bg-[#F9F8F6] dark:bg-neutral-950 transition-colors duration-500">
       {/* Fixed Top Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/10">
+      <nav className="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-black/5 dark:border-white/10 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <button
             onClick={() => navigate(`/#projects-section?tab=${fromTab}`)}
-            className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group"
+            className="flex items-center gap-3 text-neutral-800 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors group"
           >
             <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />

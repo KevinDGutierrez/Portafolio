@@ -60,7 +60,7 @@ const Navbar = ({ activeSection }) => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`text-[10px] uppercase tracking-widest font-bold transition-all hover:opacity-100 dark:text-white ${activeSection === link.href.slice(1) ? 'opacity-100 border-b border-black dark:border-white' : 'opacity-40'}`}
+                  className={`text-[10px] uppercase tracking-widest font-bold transition-all text-neutral-900 dark:text-white ${activeSection === link.href.slice(1) ? 'opacity-100 border-b border-black dark:border-white' : 'opacity-50 hover:opacity-100'}`}
                 >
                   {link.name}
                 </a>
@@ -109,15 +109,15 @@ const Navbar = ({ activeSection }) => {
             key={link.name}
             href={link.href}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-3xl font-serif dark:text-white hover:italic transition-all"
+            className="text-3xl font-serif text-neutral-900 dark:text-white hover:italic transition-all"
             style={{ transitionDelay: `${i * 100}ms` }}
           >
             {link.name}
           </a>
         ))}
         <div className="absolute bottom-12 flex gap-8">
-          <a href="https://github.com/KevinDGutierrez" target="_blank" rel="noreferrer" className="text-xl text-neutral-400 hover:text-black dark:hover:text-white transition-colors"><i className="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/kevin-gutierrez-2804ab34b/" target="_blank" rel="noreferrer" className="text-xl text-neutral-400 hover:text-black dark:hover:text-white transition-colors"><i className="fab fa-linkedin"></i></a>
+          <a href="https://github.com/KevinDGutierrez" target="_blank" rel="noreferrer" className="text-xl text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"><i className="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/kevin-gutierrez-2804ab34b/" target="_blank" rel="noreferrer" className="text-xl text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"><i className="fab fa-linkedin"></i></a>
         </div>
       </div>
     </>
