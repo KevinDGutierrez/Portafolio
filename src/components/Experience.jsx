@@ -19,7 +19,7 @@ const Experience = () => {
               </p>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
                 Formación académica superior enfocada en ciencias de la computación, arquitectura de software y
-                sistemas de información (Segundo año en curso).
+                sistemas de información (Cursando el 3er semestre).
               </p>
             </div>
 

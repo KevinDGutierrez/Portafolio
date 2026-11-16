@@ -19,7 +19,7 @@ const Curriculum = () => {
             <span className="uppercase tracking-widest text-xs">Descargar CV (PDF)</span>
           </a>
         </div>
-        <p className="text-[10px] text-neutral-400 dark:text-neutral-500 pt-4 uppercase tracking-[0.2em] font-bold">Versión actualizada Mayo 2026</p>
+        <p className="text-[10px] text-neutral-400 dark:text-neutral-500 pt-4 uppercase tracking-[0.2em] font-bold">Versión actualizada Noviembre 2026</p>
       </div>
     </div>
   );
