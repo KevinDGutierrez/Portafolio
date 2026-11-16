@@ -7,9 +7,10 @@ const FALLBACK_IMG =
 
 const CATEGORY_LABELS = {
   featured: 'Destacados',
-  commercial: 'Comerciales',
-  improved: 'Rediseñados',
+  sencom: 'Desarrollados para SENCOM',
+  freelance: 'Freelance',
   school: 'Académicos',
+  improved: 'Rediseñados',
 };
 
 const Projects = () => {
@@ -19,18 +20,30 @@ const Projects = () => {
     const allProjects = Array.isArray(PROJECTS_IMPORT) ? PROJECTS_IMPORT : [];
     const improvedProjects = Array.isArray(PROJECTS_IMPROVED) ? PROJECTS_IMPROVED : [];
 
-    const escolares = allProjects.filter(p => p.id <= 6);
-    const comerciales = allProjects.filter(p => p.id >= 7);
+    const academicos = allProjects.filter(p => p.id <= 6);
+    // Freelance: Chilaquiles Landing (12), Chilaquiles Bot (13), Falcons Sports Club (20)
+    const freelanceIds = [12, 13, 20];
+    const freelance = allProjects.filter(p => freelanceIds.includes(p.id));
+    // SENCOM: 7 a 11 y 14 a 19
+    const sencom = allProjects.filter(p => p.id >= 7 && !freelanceIds.includes(p.id));
     const rediseñados = improvedProjects;
 
-    const destacadosIds = [6, 7, 9, 10, 11, 13];
+    // Proyectos destacados seleccionados estratégicamente por impacto comercial y técnico
+    // 14: SENCOM Proyectos (ERP + CRM + Cloud)
+    // 10: Zenith AI (Prospección IA + Campañas B2B)
+    // 7: Sen-IA Chatbot (WhatsApp + CRM Dolibarr)
+    // 16: SENCOM Contratos (Gestión contratos + Generación Word/PDF)
+    // 9: Sencom Security News (Plataforma Ciberseguridad + Gemini)
+    // 20: Falcons Sports Club (Landing deportiva moderna)
+    const destacadosIds = [14, 10, 7, 16, 9, 20];
     const destacados = allProjects.filter(p => destacadosIds.includes(p.id));
 
     return [
       { key: 'featured', data: destacados, count: destacados.length },
-      { key: 'commercial', data: comerciales, count: comerciales.length },
+      { key: 'sencom', data: sencom, count: sencom.length },
+      { key: 'freelance', data: freelance, count: freelance.length },
+      { key: 'school', data: academicos, count: academicos.length },
       { key: 'improved', data: rediseñados, count: rediseñados.length },
-      { key: 'school', data: escolares, count: escolares.length },
     ];
   }, []);
 
@@ -68,6 +81,8 @@ const Projects = () => {
   const projects = activePage?.data ?? [];
 
   const handleProjectClick = (project) => {
+    // Guardar la posición de scroll actual antes de ir al detalle
+    sessionStorage.setItem('portfolio_scroll_pos', window.scrollY.toString());
     const source = activePageKey === 'improved' ? 'improved' : 'main';
     navigate(`/project/${source}/${project.id}?tab=${activePageKey}`);
   };

@@ -18,8 +18,8 @@ const Experience = () => {
                 Universidad Mariano Gálvez de Guatemala
               </p>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
-                Inicio de formación académica superior enfocada en computación y
-                sistemas de información.
+                Formación académica superior enfocada en ciencias de la computación, arquitectura de software y
+                sistemas de información (Segundo año en curso).
               </p>
             </div>
 

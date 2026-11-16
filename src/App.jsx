@@ -103,14 +103,28 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Handle hash navigation when returning from project detail
-    if (location.hash) {
-      setTimeout(() => {
-        // Extract just the element ID from hash (strip ?tab=... query params)
-        const hashPart = location.hash.split('?')[0];
-        const el = document.querySelector(hashPart);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+    // Si regresamos a la página principal con hash de proyectos o posición guardada
+    if (location.pathname === '/') {
+      const savedScroll = sessionStorage.getItem('portfolio_scroll_pos');
+      if (savedScroll !== null) {
+        // Restaurar exactamente la posición previa de scroll
+        sessionStorage.removeItem('portfolio_scroll_pos');
+        setTimeout(() => {
+          window.scrollTo({
+            top: parseInt(savedScroll, 10),
+            behavior: 'instant'
+          });
+        }, 50);
+        return;
+      }
+
+      if (location.hash) {
+        setTimeout(() => {
+          const hashPart = location.hash.split('?')[0];
+          const el = document.querySelector(hashPart);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
     }
   }, [location]);
 

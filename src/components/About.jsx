@@ -12,7 +12,7 @@ const About = () => {
           <div className="space-y-6 text-neutral-600 dark:text-neutral-400 leading-relaxed">
             <p className="text-lg md:text-xl font-light">
               Soy una persona proactiva, decidida y comprometida. Mi objetivo es consolidarme como{" "}
-              <strong className="text-neutral-900 dark:text-white">Desarrollador FULL-STACK</strong> e iniciar este año mi carrera en{" "}
+              <strong className="text-neutral-900 dark:text-white">Desarrollador FULL-STACK</strong>, actualmente cursando el segundo año tras haber culminado exitosamente los primeros semestres de{" "}
               <strong className="text-neutral-900 dark:text-white">Ingeniería en Sistemas en la Universidad Mariano Gálvez de Guatemala</strong>.
             </p>
             <p>

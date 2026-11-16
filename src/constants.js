@@ -121,13 +121,14 @@ export const PROJECTS = [
     demoUrl: null,
     cover: "/assets/cover_kobo.png",
     images: [
-      "/assets/kobo1.png",
-      "/assets/kobo2.png",
-      "/assets/kobo3.png",
-      "/assets/kobo4.png",
-      "/assets/kobo5.png",
-      "/assets/kobo6.png",
-      "/assets/kobo7.png"
+      "/assets/kobo (1).png",
+      "/assets/kobo (2).png",
+      "/assets/kobo (3).png",
+      "/assets/kobo (4).png",
+      "/assets/kobo (5).png",
+      "/assets/kobo (6).png",
+      "/assets/kobo (7).png",
+      "/assets/kobo (8).png"
     ]
   },
   {
@@ -298,6 +299,241 @@ export const PROJECTS = [
       "/assets/Chilaquile_BOT (3).png"
     ],
   },
+    {
+    id: 14,
+    title: "SENCOM Proyectos - Sistema Integral de Gestión Comercial, Financiera y Operativa",
+    description:
+      "Plataforma empresarial de misión crítica desarrollada para centralizar y digitalizar el ciclo de vida completo de proyectos corporativos (New Orders y Pedidos MP). El sistema conecta directamente con el ERP contable Softland (SQL Server) para la consulta de clientes, validación en tiempo real y creación transaccional de centros de costos, así como con el CRM Dolibarr para la asignación de personal operativo y directores técnicos. Integra dashboards analíticos con cálculo automático de rentabilidad, márgenes brutos y facturación multidivisa (GTQ/USD/HNL), reportería gráfica comercial y de arquitectura, seguimiento por estados operativos y control de instalaciones técnicas con evaluación por tiempos. Además, incorpora automatización mediante Google Cloud Scheduler para auditorías y alertas preventivas de plazos de entrega por correo electrónico, búsquedas globales instantáneas y control de acceso granular basado en roles (RBAC) con Google OAuth.",
+    technologies: [
+      "React",
+      "Vite",
+      "Node.js",
+      "Express.js",
+      "Firebase",
+      "Firestore",
+      "Firebase Hosting",
+      "Google Cloud (Cloud Run)",
+      "Google Cloud Scheduler",
+      "Softland ERP (SQL Server)",
+      "Dolibarr CRM",
+      "Tailwind CSS",
+      "OAuth 2.0 (Google)",
+      "APIs REST",
+      "Automatización",
+      "Email Notifications",
+      "Fintech / Business Analytics"
+    ],
+    githubUrl: null,
+    liveUrl: "null",
+    cover: "/assets/cover_proyectos_sencom.png",
+    images: [
+      "/assets/sencom_p (1).png",
+      "/assets/sencom_p (2).png",
+      "/assets/sencom_p (3).png",
+      "/assets/sencom_p (4).png",
+      "/assets/sencom_p (5).png",
+      "/assets/sencom_p (6).png",
+      "/assets/sencom_p (7).png",
+      "/assets/sencom_p (8).png",
+      "/assets/sencom_p (9).png",
+      "/assets/sencom_p (10).png",
+      "/assets/sencom_p (11).png",
+      "/assets/sencom_p (12).png",
+      "/assets/sencom_p (13).png",
+      "/assets/sencom_p (14).png"
+    ],
+  },
+    {
+    id: 15,
+    title: "SENCOM Inventario — Sistema de Reportería, Valorización y Control de Stock ERP",
+    description:
+      "Plataforma empresarial de analítica y control de inventarios desarrollada para conectar y consumir en tiempo real el ERP contable Softland (SQL Server). El sistema cuenta con arquitectura de solo lectura de alta seguridad y optimización de consultas SQL para grandes volúmenes de datos. Incluye dashboards ejecutivos con KPIs de stock, reportería avanzada de existencias por bodega, valorización contable multi-método (costo promedio, estándar y último costo), trazabilidad completa con Kardex físico-financiero y control de lotes con alertas de vencimiento. Además, incorpora vistas segmentadas con control de acceso basado en roles (RBAC) con Google OAuth: una vista especializada para el equipo comercial con filtros automáticos de disponibilidad y exclusión de almacenes en proceso de auditoría, y un módulo administrativo completo con exportación interactiva a Excel, CSV y PDF.",
+    technologies: [
+      "React",
+      "Vite",
+      "Node.js",
+      "Express.js",
+      "SQL Server (Softland ERP)",
+      "Firebase Hosting",
+      "Google Cloud (Cloud Run)",
+      "Tailwind CSS",
+      "TanStack Table",
+      "OAuth 2.0 (Google)",
+      "APIs REST",
+      "Data Analytics / BI",
+      "Exportación de Reportes (Excel / PDF)"
+    ],
+    githubUrl: null,
+    liveUrl: null,
+    cover: "/assets/cover_softland_inventario.png",
+    images: [
+      "/assets/inv_ (1).png",
+      "/assets/inv_ (2).png",
+      "/assets/inv_ (3).png",
+      "/assets/inv_ (4).png"
+    ],
+  },
+  {
+  id: 16,
+  title: "SENCOM Contratos — Sistema de Administración de Contratos Comerciales",
+  description:
+    "Plataforma empresarial full-stack para la gestión integral del ciclo de vida de contratos comerciales de arrendamiento y mantenimiento de equipos. El sistema integra en tiempo real el ERP contable Softland (SQL Server) como fuente autoritativa de clientes, aplicando un modelo híbrido donde los datos fiscales se consultan directamente desde Softland y los datos notariales y contractuales complementarios (representante legal, DPI, municipio) se persisten en Firestore vinculados inequívocamente a la PK de Softland. Incluye un wizard de creación de contratos multi-paso con cálculo automático de cuotas por periodicidad (mensual, trimestral, cuatrimestral, semestral y anual), rentabilidad por contrato, generación automática de documentos contractuales en Word y PDF mediante plantillas con marcadores dinámicos, flujo de aprobación con notificaciones por correo electrónico, y activación de contratos con creación automática de tickets de mantenimiento en Dolibarr. El sistema cuenta con control de acceso basado en roles (ADMIN / SELLER / VIEWER) con Google OAuth, donde los vendedores únicamente visualizan sus propios contratos asignados por el administrador. Incorpora además un dashboard ejecutivo con KPIs de cartera activa, próximos vencimientos, distribución por tipo de contrato y estado de mantenimientos preventivos programados, además de integración con el módulo de Dolibarr para seguimiento del estado de tickets de servicio técnico.",
+  technologies: [
+    "React",
+    "Vite",
+    "Node.js",
+    "Express.js",
+    "SQL Server (Softland ERP)",
+    "Firebase Firestore",
+    "Firebase Hosting",
+    "Google Cloud (Cloud Run)",
+    "Tailwind CSS",
+    "OAuth 2.0 (Google)",
+    "Dolibarr CRM",
+    "Generación de Documentos Word / PDF",
+    "APIs REST",
+    "Control de Acceso RBAC"
+  ],
+  githubUrl: null,
+  liveUrl: null,
+  cover: "/assets/cover_sencom_contratos.png",
+  images: [
+    "/assets/contratos_ (1).png",
+    "/assets/contratos_ (2).png",
+    "/assets/contratos_ (3).png",
+    "/assets/contratos_ (4).png",
+    "/assets/contratos_ (5).png",
+    "/assets/contratos_ (6).png",
+    "/assets/contratos_ (7).png",
+    "/assets/contratos_ (8).png",
+    "/assets/contratos_ (9).png",
+    "/assets/contratos_ (10).png",
+    "/assets/contratos_ (11).png"
+  ],
+},
+{
+  id: 17,
+  title: "SENCOM Admin — Administración y Métricas de SenIA (Asistente IA WhatsApp)",
+  description:
+    "Módulo de administración y observabilidad del asistente conversacional SenIA, desplegado sobre WhatsApp Business. Proporciona un visor en tiempo real de todas las conversaciones activas e históricas sincronizadas desde Firebase Firestore mediante listeners reactivos (onSnapshot), con búsqueda por nombre de empresa o número de WhatsApp y visualización completa del hilo de mensajes diferenciando entre respuestas del bot (Gemini), intervenciones de agente humano y mensajes del cliente. Integra un panel de métricas de consumo de la API de Gemini que consolida tokens utilizados por sesión, modelo activo asignado a cada conversación y estadísticas de uso acumulado. El acceso al panel está protegido por Google OAuth con restricción explícita a cuentas corporativas autorizadas (@sencomca.com), y el backend corre sobre Google Cloud Run con variables de entorno gestionadas desde Secret Manager. La arquitectura separa el webhook receptor de mensajes de WhatsApp (Node.js / Express) del frontend React, permitiendo escalar cada capa de forma independiente.",
+  technologies: [
+    "React",
+    "Vite",
+    "Node.js",
+    "Express.js",
+    "Firebase Firestore",
+    "Firebase Hosting",
+    "Google Cloud (Cloud Run)",
+    "Gemini API (Google AI)",
+    "WhatsApp Business API",
+    "Tailwind CSS",
+    "OAuth 2.0 (Google)",
+    "APIs REST",
+    "Tiempo Real (onSnapshot)"
+  ],
+  githubUrl: null,
+  liveUrl: null,
+  cover: "/assets/cover_senia_admin.png",
+  images: [
+    "/assets/Admin-senia (1).png",
+    "/assets/Admin-senia (2).png",
+    "/assets/Admin-senia (3).png"
+  ],
+},
+
+{
+  id: 18,
+  title: "SENCOM Admin — Sistema de Encuestas de Satisfacción (NPS / CSAT)",
+  description:
+    "Sistema end-to-end de gestión de encuestas de satisfacción de clientes integrado con Dolibarr CRM. El motor backend detecta automáticamente el cierre de tickets de soporte técnico en Dolibarr mediante su API REST y dispara el envío de una encuesta personalizada por correo electrónico al cliente (vía Nodemailer), respetando una lógica de control de frecuencia que garantiza máximo una encuesta por cliente por mes. Incluye un wizard de creación de formularios dinámicos desde el panel administrativo con soporte para múltiples tipos de pregunta (NPS, escala de estrellas, opción múltiple, texto libre), generación de tokens únicos por encuesta para acceso público sin autenticación, y una vista de estadísticas por formulario con gráficas de distribución de respuestas (Recharts). Incorpora además un rastreador de envíos por ticket que muestra el estado de cada encuesta (enviada, abierta, respondida) con timestamps de cada evento. El correo del destinatario se resuelve en cascada: primero desde el cliente principal en Dolibarr, luego desde sus contactos asociados.",
+  technologies: [
+    "React",
+    "Vite",
+    "Node.js",
+    "Express.js",
+    "Firebase Firestore",
+    "Firebase Hosting",
+    "Google Cloud (Cloud Run)",
+    "Dolibarr",
+    "Nodemailer",
+    "Recharts",
+    "Tailwind CSS",
+    "OAuth 2.0 (Google)",
+    "APIs REST",
+    "Tokens de acceso único"
+  ],
+  githubUrl: null,
+  liveUrl: null,
+  cover: "/assets/cover_encuestas.png",
+  images: [
+    "/assets/encuestas_ (1).png",
+    "/assets/encuestas_ (2).png",
+    "/assets/encuestas_ (3).png",
+    "/assets/encuestas_ (4).png"
+  ],
+},
+
+{
+  id: 19,
+  title: "SENCOM Admin — Sistema de Reportes de Home Office Comercial",
+  description:
+    "Plataforma de seguimiento diario y semanal de actividades comerciales para el equipo de ventas en modalidad home office. El sistema envía automáticamente formularios personalizados por correo electrónico a cada vendedor activo de lunes a viernes a las 17:00 (hora Guatemala) mediante un cron job en Google Cloud Run, con control de horario y días hábiles programado en el backend. Los formularios son dinámicos, definidos en Firestore y renderizados en el frontend sin ningún cambio de código: soportan tipos de pregunta client_action_list (clientes contactados por canal con acción registrada), simple_list, número y texto largo. Las respuestas se almacenan en Firestore vinculadas a la asignación por token único e incluyen trazabilidad de IP y User-Agent. El módulo de jefatura genera un reporte consolidado accesible vía enlace tokenizado que muestra en tiempo real el estado de respuesta de cada vendedor (pendiente, abierto, respondido) con sus respuestas completas. Incluye exportación a Excel con estilos corporativos (xlsx-js-style), con columnas generadas dinámicamente desde los textos de pregunta y agrupación por fecha. El panel administrativo permite gestión de vendedores, reenvío de asignaciones y vista previa de formularios.",
+  technologies: [
+    "React",
+    "Vite",
+    "Node.js",
+    "Express.js",
+    "Firebase Firestore",
+    "Firebase Hosting",
+    "Google Cloud (Cloud Run)",
+    "Nodemailer",
+    "xlsx-js-style (Excel)",
+    "Tailwind CSS",
+    "OAuth 2.0 (Google)",
+    "APIs REST",
+    "Cron Jobs",
+    "Tokens de acceso único"
+  ],
+  githubUrl: null,
+  liveUrl: null,
+  cover: "/assets/cover_home_office.png",
+  images: [
+    "/assets/home_office_ (1).png",
+    "/assets/home_office_ (2).png",
+    "/assets/home_office_ (3).png",
+    "/assets/home_office_ (4).png",
+    "/assets/home_office_ (5).png",
+    "/assets/home_office_ (6).png"
+  ],
+},
+{
+  id: 20,
+  title: "Falcons Sports Club — Landing Page Club Deportivo",
+  description:
+    "Landing page institucional desarrollada para Falcons Sports Club (CAES), club deportivo de fútbol y voleibol ubicado en San José Pinula, Guatemala. El sitio presenta la identidad del club, su metodología de entrenamiento, categorías por edad y planes de precio para ambas academias (Fútbol y Voleibol), con integración directa a WhatsApp Business para consultas y registro de nuevos atletas. Incluye secciones animadas con Framer Motion, diseño responsive mobile-first, paleta de marca personalizada, galería por categoría con modal interactivo y sección de contacto con enlaces a redes sociales, Google Maps y Waze.",
+  technologies: [
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "Framer Motion",
+    "Lucide React",
+    "WhatsApp Business API",
+    "Diseño UI/UX",
+    "Responsive Design",
+  ],
+  githubUrl: null,
+  liveUrl: "https://falcons-sports-club.vercel.app/", // 👈 pon aquí el dominio cuando lo tengas
+  cover: "/assets/cover_falcons.png",
+  images: [
+    "/assets/falcons (1).png",
+    "/assets/falcons (2).png",
+    "/assets/falcons (3).png",
+    "/assets/falcons (4).png",
+    "/assets/falcons (5).png",
+    "/assets/falcons (6).png",
+    "/assets/falcons (7).png"
+  ],
+},
 ];
 
 export const PROJECTS_IMPROVED = [

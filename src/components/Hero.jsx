@@ -30,10 +30,10 @@ const Hero = () => {
       <div className="order-1 md:order-2 flex justify-center relative reveal active">
         <div className="relative w-full max-w-[320px] md:max-w-md aspect-[4/5] overflow-hidden group border border-neutral-100 dark:border-neutral-800 rounded-sm shadow-xl transition-all">
           <img 
-            src="image/perfil.jpg" 
+            src="/assets/perfil.png" 
             alt="Daniel Gutierrez" 
             className="w-full h-full object-cover transition-all duration-1000 transform group-hover:scale-105"
-            onError={(e) => { e.target.src = 'https://i.ibb.co/zHjY0DFM/Imagen-de-Whats-App-2025-07-18-a-las-19-09-14-3b947be1.jpg' }}
+            onError={(e) => { e.target.src = 'https://lh3.googleusercontent.com/d/1QKyllkt7TYjwz77Jc5W15HB-r9JDeiQJ' }}
           />
         </div>
         
